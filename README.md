@@ -2,9 +2,13 @@
 
 **(A)  :- Deploy One Application server (Ubuntu)  & Create RDS MariaDB Database :-**
 Go to the EC2 instance and we will create one Application server for that click on Launch instance. (Ubuntu) 
-Give the name of the server and we will choose Ubuntu AMI as the Application server. The instance type will be free tier - t2.micro Select KeyPair. Select VPC >> We will deploy this server in the Public subnet so we will select Public Subnet and launch the instance. 
-Now go to the RDS service and create a database by choosing MariaDB engine. Give manual username and password, Network type will be IPv4 and we will keep remaining things as default. We will NOT assign Public acccess so that Only Amazon EC2 instances & other resources inside the VPC can connect to our database. Click on create database and after that launch our Ubuntu Application server. 
- But we have not made the connectivity by whitelisting the port in security group of database. So, go to the VPC security group of RDS database and whitelist the Private IP address of Application server with Port-3306 (MySQL/Aurora). 
+Give the name of the server and we will choose Ubuntu AMI as the Application server. The instance type will be free tier - t2.micro Select KeyPair. Select VPC >> We will deploy this server in the Public subnet so we will select Public Subnet and launch the instance. ![image](https://github.com/user-attachments/assets/71a35751-04fa-43b4-9da7-441bc7330f03)
+
+Now go to the RDS service ![image](https://github.com/user-attachments/assets/3fa20f79-4675-4318-a168-b473aafa865e)
+create a database by choosing MariaDB engine. ![image](https://github.com/user-attachments/assets/3c5d1445-3466-4f55-8d08-228f5fafc25f)
+ Give manual username and password, Network type will be IPv4 and we will keep remaining things as default. We will NOT assign Public acccess so that Only Amazon EC2 instances & other resources inside the VPC can connect to our database. Click on create database and after that launch our Ubuntu Application server. 
+ But we have not made the connectivity by whitelisting the port in security group of database. So, go to the VPC security group of RDS database and whitelist the Private IP address of Application server with Port-3306 (MySQL/Aurora). ![image](https://github.com/user-attachments/assets/d5935bcf-e92f-460f-8376-5a85d41f2c37)
+
  ![image](https://github.com/user-attachments/assets/7e25ae69-7c2c-4a84-85bc-e37c2ea680a6)
 Also copy the Endpoint of database to use in command for the connectivity. 
 On terminal, we will update server with command :- `#apt update` ![Screenshot 2024-10-16 235258](https://github.com/user-attachments/assets/6a1a7d8b-a157-43a1-aad2-fb0fc6172231)
